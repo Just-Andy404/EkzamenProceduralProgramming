@@ -16,50 +16,50 @@ struct Product {
     char maker[255];
     double price;
     char product_class[255];
-    Date arrival_date_in_stock; // Дата поступления на склад
-    Date shelf_life; // Срок годности
+    Date arrival_date_in_stock; // Р”Р°С‚Р° РїРѕСЃС‚СѓРїР»РµРЅРёСЏ РЅР° СЃРєР»Р°Рґ
+    Date shelf_life; // РЎСЂРѕРє РіРѕРґРЅРѕСЃС‚Рё
 };
 
 
-// Добавление товара на склад.
+// Р”РѕР±Р°РІР»РµРЅРёРµ С‚РѕРІР°СЂР° РЅР° СЃРєР»Р°Рґ.
 Product input() {
-    Product aProduct; // Создание нового объекта структуры Product
+    Product aProduct; // РЎРѕР·РґР°РЅРёРµ РЅРѕРІРѕРіРѕ РѕР±СЉРµРєС‚Р° СЃС‚СЂСѓРєС‚СѓСЂС‹ Product
     int day, month, year;
     cin.ignore();
-    cout << "Введите название: ";
+    cout << "Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ: ";
     cin.getline(aProduct.title, 255);
-    cout << "Введите производителя: ";
+    cout << "Р’РІРµРґРёС‚Рµ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЏ: ";
     cin.getline(aProduct.maker, 255);
-    cout << "Введите цену: ";
+    cout << "Р’РІРµРґРёС‚Рµ С†РµРЅСѓ: ";
     cin >> aProduct.price;
     cin.ignore();
-    cout << "Введите класс продукта: ";
+    cout << "Р’РІРµРґРёС‚Рµ РєР»Р°СЃСЃ РїСЂРѕРґСѓРєС‚Р°: ";
     cin.getline(aProduct.product_class, 255);
-    cout << "Введите даты поступления на склад (ДД ММ ГГГГ): ";
+    cout << "Р’РІРµРґРёС‚Рµ РґР°С‚С‹ РїРѕСЃС‚СѓРїР»РµРЅРёСЏ РЅР° СЃРєР»Р°Рґ (Р”Р” РњРњ Р“Р“Р“Р“): ";
     cin >> day >> month >> year;
     aProduct.arrival_date_in_stock = { day, month, year };
-    cout << "Введите дату истечения срока действия: ";
+    cout << "Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ РёСЃС‚РµС‡РµРЅРёСЏ СЃСЂРѕРєР° РґРµР№СЃС‚РІРёСЏ: ";
     cin >> day >> month >> year;
     aProduct.shelf_life = { day, month, year };
 
     return aProduct;
 }
 
-//Меню
+//РњРµРЅСЋ
 int Menu() {
     int choice;
-    cout << "1)Добавление товара на склад\n"
-        << "2)Печать всех книг\n"
-        << "3)Удаление товара со склада\n"
-        << "4)Замена товара\n"
-        << "5)Поиск товара по названию\n"
-        << "6)Поиск товара По производителю\n"
-        << "7)Поиск товара По цене\n"
-        << "8)Поиск товара По группе товара\n"
-        << "9)Поиск товара По дате поступления на склад\n"
-        << "10)Поиск товара По сроку годности\n"
-        << "11)Сортировка товара По цене\n"
-        << "12)Сортировк а товара По группе товара\n"
+    cout << "1)Р”РѕР±Р°РІР»РµРЅРёРµ С‚РѕРІР°СЂР° РЅР° СЃРєР»Р°Рґ\n"
+        << "2)РџРµС‡Р°С‚СЊ РІСЃРµС… РєРЅРёРі\n"
+        << "3)РЈРґР°Р»РµРЅРёРµ С‚РѕРІР°СЂР° СЃРѕ СЃРєР»Р°РґР°\n"
+        << "4)Р—Р°РјРµРЅР° С‚РѕРІР°СЂР°\n"
+        << "5)РџРѕРёСЃРє С‚РѕРІР°СЂР° РїРѕ РЅР°Р·РІР°РЅРёСЋ\n"
+        << "6)РџРѕРёСЃРє С‚РѕРІР°СЂР° РџРѕ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЋ\n"
+        << "7)РџРѕРёСЃРє С‚РѕРІР°СЂР° РџРѕ С†РµРЅРµ\n"
+        << "8)РџРѕРёСЃРє С‚РѕРІР°СЂР° РџРѕ РіСЂСѓРїРїРµ С‚РѕРІР°СЂР°\n"
+        << "9)РџРѕРёСЃРє С‚РѕРІР°СЂР° РџРѕ РґР°С‚Рµ РїРѕСЃС‚СѓРїР»РµРЅРёСЏ РЅР° СЃРєР»Р°Рґ\n"
+        << "10)РџРѕРёСЃРє С‚РѕРІР°СЂР° РџРѕ СЃСЂРѕРєСѓ РіРѕРґРЅРѕСЃС‚Рё\n"
+        << "11)РЎРѕСЂС‚РёСЂРѕРІРєР° С‚РѕРІР°СЂР° РџРѕ С†РµРЅРµ\n"
+        << "12)РЎРѕСЂС‚РёСЂРѕРІРє Р° С‚РѕРІР°СЂР° РџРѕ РіСЂСѓРїРїРµ С‚РѕРІР°СЂР°\n"
         << "0)exit\n"
         << "Choice what do you need: \n";
     cin >> choice;
@@ -67,15 +67,15 @@ int Menu() {
 }
 
 
-// Вывод данных со склада
+// Р’С‹РІРѕРґ РґР°РЅРЅС‹С… СЃРѕ СЃРєР»Р°РґР°
 void Print(Product aProduct) {
-    cout << "Название: " << aProduct.title << endl;
-    cout << "Производитель: " << aProduct.maker << endl;
-    cout << "Цена: " << aProduct.price << endl;
-    cout << "Класс продукта: " << aProduct.product_class << endl;
-    cout << "Дата поступления на склад: " << aProduct.arrival_date_in_stock.day << "." <<
+    cout << "РќР°Р·РІР°РЅРёРµ: " << aProduct.title << endl;
+    cout << "РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊ: " << aProduct.maker << endl;
+    cout << "Р¦РµРЅР°: " << aProduct.price << endl;
+    cout << "РљР»Р°СЃСЃ РїСЂРѕРґСѓРєС‚Р°: " << aProduct.product_class << endl;
+    cout << "Р”Р°С‚Р° РїРѕСЃС‚СѓРїР»РµРЅРёСЏ РЅР° СЃРєР»Р°Рґ: " << aProduct.arrival_date_in_stock.day << "." <<
         aProduct.arrival_date_in_stock.month << "." << aProduct.arrival_date_in_stock.year << endl;
-    cout << "Дата по сроку годности: " << aProduct.shelf_life.day << "." <<
+    cout << "Р”Р°С‚Р° РїРѕ СЃСЂРѕРєСѓ РіРѕРґРЅРѕСЃС‚Рё: " << aProduct.shelf_life.day << "." <<
         aProduct.shelf_life.month << "." << aProduct.shelf_life.year << endl;
 }
 
@@ -95,53 +95,42 @@ Product* add(Product*& array, int& size, Product newElement) {
     return newArray;
 }
 
-// Удаление товара со склада
+// РЈРґР°Р»РµРЅРёРµ С‚РѕРІР°СЂР° СЃРѕ СЃРєР»Р°РґР°
 void remove(Product aProduct[], int& size, int indexToDelete) {
     if (indexToDelete < 0 || indexToDelete >= size) {
-        std::cerr << "Неверный индекс" << std::endl;
+        std::cerr << "РќРµРІРµСЂРЅС‹Р№ РёРЅРґРµРєСЃ" << std::endl;
         return;
     }
 
-    // Создаем новый массив меньшего размера
+    // РЎРѕР·РґР°РµРј РЅРѕРІС‹Р№ РјР°СЃСЃРёРІ РјРµРЅСЊС€РµРіРѕ СЂР°Р·РјРµСЂР°
     Product* newProducts = new Product[size - 1];
 
-    // Копируем элементы в новый массив, пропуская удаляемый элемент
+    // РљРѕРїРёСЂСѓРµРј СЌР»РµРјРµРЅС‚С‹ РІ РЅРѕРІС‹Р№ РјР°СЃСЃРёРІ, РїСЂРѕРїСѓСЃРєР°СЏ СѓРґР°Р»СЏРµРјС‹Р№ СЌР»РµРјРµРЅС‚
     for (int i = 0, j = 0; i < size; ++i) {
         if (i != indexToDelete) {
             newProducts[j++] = aProduct[i];
         }
     }
 
-    // Освобождаем старый массив
+    // РћСЃРІРѕР±РѕР¶РґР°РµРј СЃС‚Р°СЂС‹Р№ РјР°СЃСЃРёРІ
     delete[] aProduct;
 
-    // Обновляем указатель на новый массив
+    // РћР±РЅРѕРІР»СЏРµРј СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РЅРѕРІС‹Р№ РјР°СЃСЃРёРІ
     aProduct = newProducts;
 
-    // Уменьшаем размер массива
+    // РЈРјРµРЅСЊС€Р°РµРј СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР°
     size--;
 
 }
 
 Product* change(Product*& array, int& size, Product newElement, int& whichItemChange) {
-    // Создаем новый массив 
-    Product* newArray = new Product[size];
+    
+    array[whichItemChange] = newElement;
 
-    // Копируем существующие элементы в новый массив
-    for (int i = 0; i < size; ++i) {
-        newArray[i] = array[i];
-    }
-
-    // Добавляем новый элемент
-    newArray[whichItemChange] = newElement;
-
-    // Удаляем старый массив
-    delete[] array;
-
-    return newArray;
+    return array;
 }
 
-// Поиск товара: По названию
+// РџРѕРёСЃРє С‚РѕРІР°СЂР°: РџРѕ РЅР°Р·РІР°РЅРёСЋ
 void searchOfTitle(Product aProduct[], int size, const char* whichTitle) {
     bool found = false;
     for (int i = 0; i < size; ++i) {
@@ -151,11 +140,11 @@ void searchOfTitle(Product aProduct[], int size, const char* whichTitle) {
         }
     }
     if (!found) {
-        cout << "товар по названию не найдены: " << whichTitle << endl;
+        cout << "С‚РѕРІР°СЂ РїРѕ РЅР°Р·РІР°РЅРёСЋ РЅРµ РЅР°Р№РґРµРЅС‹: " << whichTitle << endl;
     }
 }
 
-//Поиск товара: По производителю
+//РџРѕРёСЃРє С‚РѕРІР°СЂР°: РџРѕ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЋ
 void searchOfMaker(Product aProduct[], int size, const char* whichMaker) {
     bool found = false;
     for (int i = 0; i < size; ++i) {
@@ -165,11 +154,11 @@ void searchOfMaker(Product aProduct[], int size, const char* whichMaker) {
         }
     }
     if (!found) {
-        cout << "товар по производителю не найдено: " << whichMaker << endl;
+        cout << "С‚РѕРІР°СЂ РїРѕ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЋ РЅРµ РЅР°Р№РґРµРЅРѕ: " << whichMaker << endl;
     }
 }
 
-//Поиск товара: По цене
+//РџРѕРёСЃРє С‚РѕРІР°СЂР°: РџРѕ С†РµРЅРµ
 void searchOfPrice(Product aProduct[], int size, int whichPrice) {
     bool found = false;
     for (int i = 0; i < size; ++i) {
@@ -179,11 +168,11 @@ void searchOfPrice(Product aProduct[], int size, int whichPrice) {
         }
     }
     if (!found) {
-        cout << "товар по цене не найдено: " << whichPrice << endl;
+        cout << "С‚РѕРІР°СЂ РїРѕ С†РµРЅРµ РЅРµ РЅР°Р№РґРµРЅРѕ: " << whichPrice << endl;
     }
 }
 
-//Поиск товара: По группе товара
+//РџРѕРёСЃРє С‚РѕРІР°СЂР°: РџРѕ РіСЂСѓРїРїРµ С‚РѕРІР°СЂР°
 void searchOfProductClass(Product aProduct[], int size, const char* whichProductClass) {
     bool found = false;
     for (int i = 0; i < size; ++i) {
@@ -193,11 +182,11 @@ void searchOfProductClass(Product aProduct[], int size, const char* whichProduct
         }
     }
     if (!found) {
-        cout << " товар автора не найдены: " << whichProductClass << endl;
+        cout << " С‚РѕРІР°СЂ Р°РІС‚РѕСЂР° РЅРµ РЅР°Р№РґРµРЅС‹: " << whichProductClass << endl;
     }
 }
 
-//Поиск товара: По дате поступления
+//РџРѕРёСЃРє С‚РѕРІР°СЂР°: РџРѕ РґР°С‚Рµ РїРѕСЃС‚СѓРїР»РµРЅРёСЏ
 void searchOfdate(Product aProduct[], int size, int whichDay, int whichMonth, int whichYear) {
     bool found = false;
     for (int i = 0; i < size; ++i) {
@@ -211,11 +200,11 @@ void searchOfdate(Product aProduct[], int size, int whichDay, int whichMonth, in
         }
     }
     if (!found) {
-        cout << "товар по цене не найдено: " << whichDay << "." << whichMonth << "." << whichYear << endl;
+        cout << "С‚РѕРІР°СЂ РїРѕ С†РµРЅРµ РЅРµ РЅР°Р№РґРµРЅРѕ: " << whichDay << "." << whichMonth << "." << whichYear << endl;
     }
 }
 
-//Сортировка товара:По цене
+//РЎРѕСЂС‚РёСЂРѕРІРєР° С‚РѕРІР°СЂР°:РџРѕ С†РµРЅРµ
 Product* sortingOfPrice(Product aProduct[], int ROWS) {
     for (int i = 0; i < ROWS - 1; i++) {
         if (aProduct[i].price < aProduct[i + 1].price) {
@@ -227,15 +216,15 @@ Product* sortingOfPrice(Product aProduct[], int ROWS) {
     return aProduct;
 }
 
-//Сортировка товара:По группе товара
+//РЎРѕСЂС‚РёСЂРѕРІРєР° С‚РѕРІР°СЂР°:РџРѕ РіСЂСѓРїРїРµ С‚РѕРІР°СЂР°
 Product* sortingOfproduct_class(Product* aProduct, int ROWS) {
     bool swapped = true;
     while (swapped) {
         swapped = false;
         for (int i = 0; i < ROWS - 1; i++) {
-            // Проверяем, нужно ли менять местами соседние элементы
+            // РџСЂРѕРІРµСЂСЏРµРј, РЅСѓР¶РЅРѕ Р»Рё РјРµРЅСЏС‚СЊ РјРµСЃС‚Р°РјРё СЃРѕСЃРµРґРЅРёРµ СЌР»РµРјРµРЅС‚С‹
             if (strcmp(aProduct[i].product_class, aProduct[i + 1].product_class) > 0) {
-                // Меняем местами
+                // РњРµРЅСЏРµРј РјРµСЃС‚Р°РјРё
                 Product temp = aProduct[i];
                 aProduct[i] = aProduct[i + 1];
                 aProduct[i + 1] = temp;
